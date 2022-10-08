@@ -1,0 +1,20 @@
+GIT process
+----------------------
+>Create new repository
+>Provide valid name
+>Select Public Repo
+>finish
+
+Goto your folder(for e.g. ml training)
+type cmd in address bar then enter
+
+GIT commands.  ml training
+-----------------------------
+git init                #Initialize the GIT folder
+git add .            # Add all files/folders in git folder
+git config user.name"kashish"
+git config user.email'your email'
+git remote add origin "yourrepolink.git"
+
+git commit -m "anymessage"
+git push -u origin main
