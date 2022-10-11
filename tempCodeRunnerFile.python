@@ -1,0 +1,5 @@
+cols = ['user_id','movie_id','rating','ts']
+df=pd.read_csv('u.data', sep='\t', names=cols)
+item_cols=['movie_id','title']+[str(i) for i in range(22)]
+df1=pd.read_csv('u.item',sep='|',names=item_cols, encoding ="ISO-8859-1")[['movie_id','title']] 
+movie=pd.merge(df,df1,on='movie_id')
