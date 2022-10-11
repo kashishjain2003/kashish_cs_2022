@@ -1,5 +1,23 @@
+import tkinter as ttk
+import pandas as pd
+import warnings
+warnings.filterwarnings('ignore')
+import os
+print(os.getcwd())
+
+app=ttk.Tk()
+app.title('Recommendation')
+app.geometry('600x400')
+
 cols = ['user_id','movie_id','rating','ts']
 df=pd.read_csv('u.data', sep='\t', names=cols)
 item_cols=['movie_id','title']+[str(i) for i in range(22)]
 df1=pd.read_csv('u.item',sep='|',names=item_cols, encoding ="ISO-8859-1")[['movie_id','title']] 
 movie=pd.merge(df,df1,on='movie_id')
+
+
+result=ttk.Variable(app)
+box =ttk.Listbox(app,height=10)
+for row,val in movie.interrows():
+    box.insert(row+1,val['title'])
+box.place(x=30,y=30)
